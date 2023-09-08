@@ -1,0 +1,125 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.dict-table {
+    border-collapse: collapse;
+    width: 500px;
+    height: 700px
+    margin-bottom: 20px;
+    margin-top: 20px;
+    top-padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+}
+
+.dict-th {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dict-td {
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+
+.dict-tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.page-heading{
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 34px;
+    font-weight: medium;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: #4caf50;
+    border-radius: 10px;
+    display: table;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-heading {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.image-table {
+  border: 2px solid black;
+  border-radius: 10px;
+  border-spacing: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.image-table td {
+  padding: 10px;
+  border: none;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.another-image-button {
+  background-color: #4caf60;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.another-image-button:hover {
+  background-color: #3e8e41;
+}
+
+.new-class {
+    margin: auto;
+    text-align: center;
+    padding-top: 20px;
+    color: red;
+    font-size: 36px;
+}
+
+.button-custom{
+    padding: 10px 10px;
+    font-size: 25px;
+    background: #4CAF50 !important;
+    border-radius: 10px;
+}
+
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Classifier - Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ static('predict.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="page-heading">Invoice Classifier - Detection</h1>
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-interval="false">
+    <div class="carousel-inner">
+    {% for i in range(base_name|length) %}
+        {% if i==0 %}
+        <div class="carousel-item active">
+        <table class="image-table">
+            <tr>
+                <td>
+                    <h2 class="image-heading">Detected Image</h2>
+                    <img src="./static/predict/{{ base_name[i] }}.jpg" class="image">
+                </td>
+            </tr>
+        </table>
+
+        <table class="dict-table">
+        <thead>
+            <tr>
+                <th class="dict-th">Label Name</th>
+                <th class="dict-th">Extracted Text</th>
+                <th class="dict-th">Confidence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set data = my_dict[i] %}
+            {% for key, value in data.items() %}
+            <tr class="dict-tr">
+                    <td class="dict-td">{{ key }}</td>
+                    <td class="dict-td">{{ value[0] }}</td>
+                    <td class="dict-td">{{ value[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+        {% else %}
+        <div class="carousel-item">
+        <table class="image-table">
+            <tr>
+                <td>
+                    <h2 class="image-heading">Detected Image</h2>
+                    <img src="./static/predict/{{ base_name[i] }}.jpg" class="image">
+                </td>
+            </tr>
+        </table>
+
+        <table class="dict-table">
+        <thead>
+            <tr>
+                <th class="dict-th">Label Name</th>
+                <th class="dict-th">Extracted Text</th>
+                <th class="dict-th">Confidence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set data = my_dict[i] %}
+            {% for key, value in data.items() %}
+            <tr class="dict-tr">
+                    <td class="dict-td">{{ key }}</td>
+                    <td class="dict-td">{{ value[0] }}</td>
+                    <td class="dict-td">{{ value[1] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+        {% endif %}
+    {% endfor %}
+
+
+    {% for i in range(other_image_name|length) %}
+        {% if i==0 and (base_name|length)==0 %}
+        <div class="carousel-item active">
+        <table class="image-table">
+            <tr>
+                <td>
+                    <h2 class="image-heading">Uploaded Image</h2>
+                    <img src="/static/upload/{{ other_image_name[i][0] }}" class="image">
+                </td>
+            </tr>
+        </table>
+
+        <div style="text-align:center; margin: auto; color:red; font-size:30px; padding-top: 20px;">
+        <p>{{ other_image_name[i][1] }}</p> <!-- displays 'This is not an invoice' message on webpage -->
+        </div>
+
+        </div>
+        {% else %}
+        <div class="carousel-item">
+        <table class="image-table">
+            <tr>
+                <td>
+                    <h2 class="image-heading">Uploaded Image</h2>
+                    <img src="/static/upload/{{ other_image_name[i][0] }}" class="image">
+                </td>
+            </tr>
+        </table>
+        <div style="text-align:center; margin: auto; color:red; font-size:30px; padding-top: 20px;">
+        <p>{{ other_image_name[i][1] }}</p>
+        </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="button-custom" aria-hidden="true"> Previous </span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="button-custom" aria-hidden="true"> Next </span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+    <div class="button-container">
+        <button class="another-image-button" onclick="location.href='/'">Upload Another Image</button>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
